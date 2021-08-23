@@ -27,6 +27,13 @@
     ]
   },
   "projects": {
+    "nuxt-realworld": {
+      "tags": []
+    },
+    "nuxt-realworld-e2e": {
+      "tags": [],
+      "implicitDependencies": ["nuxt-realworld"]
+    },
     "user": {
       "tags": []
     },
