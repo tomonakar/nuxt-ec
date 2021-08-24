@@ -1,6 +1,86 @@
 {
   "version": 2,
   "projects": {
+    "nuxt-realworld": {
+      "projectType": "application",
+      "root": "apps/nuxt-realworld",
+      "targets": {
+        "build": {
+          "executor": "@nx-plus/nuxt:browser",
+          "options": {
+            "buildDir": "dist/apps/nuxt-realworld"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nx-plus/nuxt:server",
+          "options": {
+            "browserTarget": "nuxt-realworld:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "nuxt-realworld:build:production",
+              "dev": false
+            }
+          }
+        },
+        "static": {
+          "executor": "@nx-plus/nuxt:static",
+          "options": {
+            "browserTarget": "nuxt-realworld:build:production"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/nuxt-realworld/**/*.{ts,js,vue}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/nuxt-realworld"
+          ],
+          "options": {
+            "jestConfig": "apps/nuxt-realworld/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "nuxt-realworld-e2e": {
+      "root": "apps/nuxt-realworld-e2e",
+      "sourceRoot": "apps/nuxt-realworld-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/nuxt-realworld-e2e/cypress.json",
+            "tsConfig": "apps/nuxt-realworld-e2e/tsconfig.e2e.json",
+            "devServerTarget": "nuxt-realworld:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "nuxt-realworld:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/nuxt-realworld-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
     "user": {
       "projectType": "application",
       "root": "apps/user",
