@@ -1,5 +1,5 @@
 <template>
- <div class="editor-page">
+  <div class="editor-page">
     <div class="container page">
       <div class="row">
         <div class="col-md-10 offset-md-1 col-xs-12">
@@ -51,19 +51,18 @@
   </div>
 </template>
 
-<script lang='ts'>
-// eslint-disable-next-line import/named
-import Vue, {PropOptions} from 'vue'
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
 
-import { Article, CustomErrors} from '../../types'
-import ErrorList from './ErrorList.vue'
+import { Article, CustomErrors } from '@/types'
+import ErrorList from '@/components/common/ErrorList.vue'
 
 export default Vue.extend({
-	name: 'Editor',
+  name: 'Editor',
   components: {
     ErrorList,
   },
-props: {
+  props: {
     tagList: {
       type: Array,
       required: true,
@@ -75,6 +74,5 @@ props: {
       default: undefined,
     } as PropOptions<CustomErrors>,
   },
-
-	})
+})
 </script>

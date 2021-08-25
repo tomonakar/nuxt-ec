@@ -17,8 +17,9 @@
 
 <script lang="ts">
 import { computed, defineComponent, toRefs } from '@nuxtjs/composition-api'
-import usePagination from '../../compositions/usePagination'
-import { LIMIT_LIST_ITEM } from '../../constants'
+
+import usePagination from '@/compositions/usePagination'
+import { LIMIT_LIST_ITEM } from '@/constants'
 
 export default defineComponent({
   name: 'Pagination',
@@ -33,12 +34,15 @@ export default defineComponent({
 
     const totalPageArr = computed(() => {
       const length = props.totalCount / LIMIT_LIST_ITEM
+
       return Array.from({ length }, (_, i) => state.currentPage + i)
     })
+
     const handleSetPage = (pageIndex: number) => {
       emit('fetch-data', getOffset(pageIndex))
       setPage(pageIndex)
     }
+
     return {
       ...toRefs(state),
       handleSetPage,

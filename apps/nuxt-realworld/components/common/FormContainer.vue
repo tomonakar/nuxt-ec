@@ -30,10 +30,10 @@
 </template>
 
 <script lang="ts">
-// eslint-disable-next-line import/named
 import Vue, { PropOptions } from 'vue'
-import { CustomErrors } from '../../types'
-import ErrorList from './ErrorList.vue'
+
+import { CustomErrors } from '@/types'
+import ErrorList from '@/components/common/ErrorList.vue'
 
 export default Vue.extend({
   name: 'FormContainer',

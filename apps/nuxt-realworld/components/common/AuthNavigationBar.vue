@@ -27,10 +27,11 @@
 </template>
 
 <script lang="ts">
-// eslint-disable-next-line import/named
 import Vue, { PropType } from 'vue'
-import { User } from '../../types'
-import ProfileImage from '../../components/common/ProfileImage.vue'
+
+import { User } from '@/types'
+import ProfileImage from '@/components/common/ProfileImage.vue'
+
 export default Vue.extend({
   name: 'AuthNavigationBar',
   components: {
